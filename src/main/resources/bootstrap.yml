@@ -1,3 +1,6 @@
 spring:
   application:
     name: aurora-gateway
+  cloud:
+    config:
+      uri: http://configuration-server.com:8084
