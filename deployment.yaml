@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: aurora-gateway-deployment
+spec:
+  selector:
+    matchLabels:
+      run: gateway
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        run: gateway
+    spec:
+      containers:
+        - name: gateway
+          image: marianemuniz/aurora-gateway:latest
+          restartPolicy: Always
+          ports:
+            - containerPort: 8080
+      dnsPolicy: ClusterFirst
