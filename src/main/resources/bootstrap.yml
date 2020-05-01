@@ -3,6 +3,7 @@ spring:
     name: aurora-gateway
   cloud:
     config:
-      uri: http://configuration-server.com:8084
-  zipkin:
-    base-url: http://192.168.0.50:9411
+#      uri: http://localhost:8084/
+      profile: develop
+  profiles:
+    active: develop

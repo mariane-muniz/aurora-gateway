@@ -1,0 +1,40 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /api
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://localhost:8081/eureka
+    fetch-registry: true
+    register-with-eureka: true
+zuul:
+  sensitive-headers: Cookie
+  host:
+    connect-timeout-millis: 10000
+ribbon:
+  ReadTimeout: 10000
+  ConnectTimeout: 10000
+
+logging:
+  level:
+    root: info
+  file:
+    max-history: 1
+    max-size: 10MB
+    name: /home/scott/Projects/logs/gateway.log
+
+management:
+  endpoint:
+    shutdown:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+endpoints:
+  shutdown:
+    enabled: true
