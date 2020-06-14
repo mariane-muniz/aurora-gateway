@@ -8,4 +8,4 @@ FROM openjdk:8-jdk
 WORKDIR /root/
 COPY --from=0 /maven-build/target/gateway.jar .
 EXPOSE 8084
-ENTRYPOINT ["java", "-jar", "gateway.jar"]
+ENTRYPOINT ["java", "-jar", "-Xmx32m", "-Xss192k", "gateway.jar"]
